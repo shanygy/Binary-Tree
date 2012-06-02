@@ -1,8 +1,13 @@
 var uiBinaryTree = function(bi, canvas) {
 	var self = {},
 		ctx = canvas.getContext('2d');
-	
+			
 	var nodeRadius = 20;
+	
+	function init() {
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+	}
 	
 	function drawCircle(coords, value, color) {
 		ctx.strokeStyle = color || 'black';
@@ -10,11 +15,6 @@ var uiBinaryTree = function(bi, canvas) {
 		ctx.arc(coords[0], coords[1], nodeRadius, 0, Math.PI * 2, true);
 		ctx.closePath();
 		ctx.fillText(value, coords[0], coords[1]);
-		ctx.stroke();
-	}
-	function drawLine(start, end) {
-		ctx.moveTo(start[0], start[1]);
-		ctx.lineTo(end[0], end[1]);
 		ctx.stroke();
 	}
 	
@@ -44,7 +44,7 @@ var uiBinaryTree = function(bi, canvas) {
 			}			
 			drawCircle([0,0], tree.root());
 			//ctx.moveTo(0, -nodeRadius); ctx.lineTo(0, nodeRadius);
-			// ctx.moveTo(-nodeRadius, 0); ctx.lineTo(nodeRadius, 0);
+			//ctx.moveTo(-nodeRadius, 0); ctx.lineTo(nodeRadius, 0);
 		};
 		var returnBack = function() { 
 			angleFactor--;
@@ -59,6 +59,8 @@ var uiBinaryTree = function(bi, canvas) {
 	
 	self.prototype = bi;
 	self.create = drawTree;
+	
+	init();
 	
 	return self;
 };
