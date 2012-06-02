@@ -34,8 +34,6 @@ var uiBinaryTree = function(bi, canvas) {
 				ctx.save();
 				// go to center position of child node
 				ctx.translate(-levelLength * Math.pow(-1, idx) * Math.sin(angle), levelLength * Math.cos(angle));
-			//	ctx.scale(0.9, 0.9);
-				//ctx.translate(-levelLength * Math.pow(-1, idx) * Math.sin(angle), levelLength * Math.cos(angle));
 
 				// end point of the branch started from parent node
 				x = Math.pow(-1, idx) * nodeRadius * Math.cos(Math.PI/4);
